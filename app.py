@@ -42,15 +42,14 @@ def make_plot(historical_dates_relative, historical_values, y_pred, range_size):
 
 # Process
 def process_input(date_text, range_size):
-    print(date_text, range_size)
     date_ordinal = pd.to_datetime(date_text).toordinal()
     date_normalized = float((date_ordinal - mean_date) / std_date)
     y_pred = pred(date_normalized)
-    print("pred")
+
     historical_dates = pd.Series(range(-range_size, range_size + 1)) / 10.0 + date_normalized
     historical_dates_relative = pd.Series([float(i) for i in range(-range_size, range_size+1)])
     historical_values = pred(historical_dates)
-    print("history")
+
     plot = make_plot(historical_dates_relative, historical_values, y_pred, range_size)
     return y_pred, plot
 
