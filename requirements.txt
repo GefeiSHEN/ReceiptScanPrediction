@@ -1,0 +1,6 @@
+gradio==3.33.1
+json5==0.9.14
+pandas==2.0.3
+altair==5.0.1
+matplotlib==3.7.2
+requests==2.29.0
